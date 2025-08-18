@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout
+  labels:
+    app: checkout
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: checkout
+  template:
+    metadata:
+      labels:
+        app: checkout
+    spec:
+      containers:
+        - name: checkout
+          image: mangesh22898/checkout-service:v2
+          env:
+            - name: EMAIL_SERVICE_URL
+              value: http://email-service/api/email
+            - name: ORDERS_FILE
+              value: /data/orders/orders.json
+          volumeMounts:
+            - name: orders-storage
+              mountPath: /data/orders
+          ports:
+            - containerPort: 80
+      volumes:
+        - name: orders-storage
+          persistentVolumeClaim:
+            claimName: orders-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkout-service
+spec:
+  selector:
+    app: checkout
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80

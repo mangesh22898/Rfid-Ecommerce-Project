@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFID Business Card Ordering</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="#" id="nav-home">
+                <img src="assets/university-logo.jpg" alt="University Logo" class="site-logo">
+            </a>
+        </div>
+    </header>
+    <div id="app">
+        <!-- Template Selection -->
+        <section id="select-template-section" class="page">
+            <h1>Select a Card Template</h1>
+            <div id="templates-container" class="template-grid"></div>
+            <div class="actions">
+                <button id="template-next-btn" disabled>Next</button>
+            </div>
+        </section>
+
+        <!-- Details Form -->
+        <section id="details-section" class="page hidden">
+            <h1>Enter Your Details</h1>
+            <form id="details-form" class="details-form">
+                <label for="student_id">Student ID</label>
+                <input type="text" id="student_id" required>
+
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+
+                <label for="institute">Institute</label>
+                <input type="text" id="institute" required>
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+
+                <label for="room">Room Number</label>
+                <input type="text" id="room" required>
+            </form>
+            <div class="actions">
+                <button id="details-back-btn">Back</button>
+                <button id="preview-btn">Preview Card</button>
+            </div>
+        </section>
+
+        <!-- Preview -->
+        <section id="preview-section" class="page hidden">
+            <h1>Preview Your Card</h1>
+            <div id="card-preview" class="card-preview"></div>
+            <div class="actions">
+                <button id="preview-back-btn">Back</button>
+                <button id="add-cart-btn">Add to Cart</button>
+            </div>
+        </section>
+
+        <!-- Cart -->
+        <section id="cart-section" class="page hidden">
+            <h1>Your Cart</h1>
+            <div id="cart-items" class="cart-items"></div>
+            <div class="actions">
+                <button id="cart-back-btn">Back</button>
+                <button id="checkout-btn" disabled>Go to Checkout</button>
+            </div>
+        </section>
+
+        <!-- Checkout -->
+        <section id="checkout-section" class="page hidden">
+            <h1>Checkout</h1>
+            <div id="checkout-summary" class="checkout-summary"></div>
+            <div class="actions">
+                <button id="checkout-back-btn">Back</button>
+                <button id="confirm-btn">Confirm Order</button>
+            </div>
+        </section>
+
+        <!-- Confirmation -->
+        <section id="confirmation-section" class="page hidden">
+            <h1>Order Placed!</h1>
+            <p>Your order has been successfully placed. A confirmation email has been sent to you.</p>
+        </section>
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-left">
+                <img src="assets/university-logo.jpg" alt="University Logo" class="footer-logo">
+            </div>
+            <div class="footer-right">
+                <div class="footer-title">Emden/Leer University of Applied Sciences</div>
+                <div>Address: Constantiaplatz 4, 26723 Emden</div>
+                <div> <a href="https://www.hs-emden-leer.de/footer-menue/kontakt" target="_blank">CONTACT</a></div>
+            </div>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
