@@ -8,11 +8,11 @@
 
 
 const ENDPOINTS = {
-    catalog: 'http://localhost:8001/api/catalog',
-    cart: 'http://localhost:8002/api/cart',
-    checkout: 'http://localhost:8003/api/checkout',
-    email: 'http://localhost:8004/api/email',
-    orders: 'http://localhost:8005/api/orders',
+    catalog: '/api/catalog',
+    cart: '/api/cart',
+    checkout: '/api/checkout',
+    email: '/api/email',
+    orders: '/api/orders',
 };
 
 document.addEventListener('DOMContentLoaded', () => {

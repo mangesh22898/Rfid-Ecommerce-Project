@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: checkout
+  namespace: rfid
   labels:
     app: checkout
 spec:
@@ -18,10 +19,12 @@ spec:
         - name: checkout
           image: mangesh22898/checkout-service:v2
           env:
-            - name: EMAIL_SERVICE_URL
-              value: http://email-service/api/email
-            - name: ORDERS_FILE
-              value: /data/orders/orders.json
+            - name: EMAIL_ENDPOINT
+              value: "http://email-service/api/email"  # service DNS inside cluster
+            - name: ADMIN_EMAIL
+              value: "man56@gmail.com"
+            - name: FROM_NAME
+              value: "University Card Service"          
           volumeMounts:
             - name: orders-storage
               mountPath: /data/orders

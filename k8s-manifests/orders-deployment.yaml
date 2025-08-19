@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: orders
+  namespace: rfid
   labels:
     app: orders
 spec:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: YOUR_DOCKERHUB_USERNAME/orders-service:latest
+          image: mangesh22898/orders-service:v2
           env:
             - name: ORDERS_FILE
               value: /data/orders/orders.json

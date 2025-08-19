@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: rfid-app-ingress
+  namespace: rfid
   annotations:
     # Use the Nginx ingress controller; adjust annotations as required by your cluster
     nginx.ingress.kubernetes.io/rewrite-target: /$2

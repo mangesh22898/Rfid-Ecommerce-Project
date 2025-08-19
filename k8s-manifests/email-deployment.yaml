@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: email
+  namespace: rfid  
   labels:
     app: email
 spec:
@@ -18,8 +19,8 @@ spec:
         - name: email
           image: mangesh22898/email-service:v2
           env:
-            - name: ADMIN_EMAIL
-              value: man56@gmail.com
+            - name: FROM_NAME
+              value: "My University Auto-Mail"
             - name: FROM_EMAIL
               value: no-reply@university.edu
           ports:
