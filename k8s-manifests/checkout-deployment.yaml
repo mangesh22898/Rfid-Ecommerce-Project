@@ -15,6 +15,11 @@ spec:
       labels:
         app: checkout
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        runAsNonRoot: true
       containers:
         - name: checkout
           image: mangesh22898/checkout-service:v2
@@ -30,6 +35,25 @@ spec:
               mountPath: /data/orders
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
       volumes:
         - name: orders-storage
           persistentVolumeClaim:

@@ -84,3 +84,8 @@ async def remove_cart_item(item_id: int):
         raise HTTPException(status_code=404, detail="Item not found")
     cart_items = remaining
     return {"status": "deleted"}
+
+@app.get("/healthz")
+async def health() -> dict[str, str]:
+    return {"status": "ok"}
+

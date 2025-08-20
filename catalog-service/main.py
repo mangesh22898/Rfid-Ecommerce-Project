@@ -73,3 +73,8 @@ async def get_catalog():
     The frontend fetches this endpoint to render the template selection view.
     """
     return {"templates": templates}
+
+@app.get("/healthz")
+async def health() -> dict[str, str]:
+    return {"status": "ok"}
+

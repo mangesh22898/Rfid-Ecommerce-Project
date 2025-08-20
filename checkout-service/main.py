@@ -172,3 +172,7 @@ async def checkout_order(order_request: OrderRequest):
     send_customer_and_admin_emails(order)
 
     return {"status": "success", "order_id": next_id}
+
+@app.get("/healthz")
+async def health() -> dict[str, str]:
+    return {"status": "ok"}

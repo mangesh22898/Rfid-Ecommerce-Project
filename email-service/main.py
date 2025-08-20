@@ -70,3 +70,8 @@ def send_email(to_addr: str, subject: str, body: str):
 @app.post("/api/email")
 def send_email_api(payload: EmailPayload):
     return send_email(payload.to, payload.subject, payload.body)
+
+@app.get("/healthz")
+async def health() -> dict[str, str]:
+    return {"status": "ok"}
+

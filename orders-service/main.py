@@ -51,3 +51,7 @@ async def list_orders():
     except Exception:
         orders = []
     return {"orders": orders}
+
+@app.get("/healthz")
+async def health() -> dict[str, str]:
+    return {"status": "ok"}
